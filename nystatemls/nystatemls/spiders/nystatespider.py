@@ -10,7 +10,7 @@ base_url = "https://www.nystatemls.com/new_york_state_real_estate_agents.html"
 
 class NystatespiderSpider(scrapy.Spider):
     name = 'nystatespider'
-    output = 'nystate.csv'
+    output = 'nystate(601-677).csv'
     open(output, 'w').close()
     header = ['AgentName', 'Role', 'Company', 'Address', 'Area', 'PhoneNo1', 'PhoneNo2', 'PhoneNo3', 'PhoneNo4', 'Eamil', 'Website']
     with open(output, "a", newline="") as f:
@@ -20,7 +20,7 @@ class NystatespiderSpider(scrapy.Spider):
     def start_requests(self):
 
         default_url = "https://www.nystatemls.com/new_york_state_real_estate_agents.html?pn={}&rpp=50"
-        for i in range(400, 667): # 677
+        for i in range(601, 677): # 677
             url = default_url.format(i)
             print (url)
 
